@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
                 <span className="text-primary-700 font-bold text-xl">GUB</span>
               </div>
               <div>
@@ -138,7 +138,7 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex px-3 py-2 text-sm bg-white text-gray-800 rounded-l-lg focus:outline-none"
+                  className="flex px-3 py-2 text-sm bg-green-600 text-gray-800 rounded-l-lg focus:outline-none"
                 />
                 <button className="bg-primary-600 hover:bg-primary-500 px-4 py-2 text-sm rounded-r-lg transition-colors">
                   Subscribe

@@ -49,16 +49,20 @@ const quickLinks = [
 
 export default function QuickLinksSection() {
   return (
-    <section id="explore" className="section-padding  from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
-            Quick Access
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Everything you need to explore international opportunities at Green
-            University
-          </p>
+    <section
+      id="explore"
+      className="py-24 bg-emerald-900/30 border-y border-emerald-800/50"
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+          <div className="max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Quick <span className="text-emerald-400">Access</span>
+            </h2>
+            <p className="text-emerald-100/60">
+              Find the essential resources for your international journey.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -66,32 +70,22 @@ export default function QuickLinksSection() {
             <Link
               key={index}
               href={link.link}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
+              className="group bg-emerald-950 border border-emerald-800 p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
             >
-              <div className="absolute top-0 right-0 w-24 h-24  opacity-10 group-hover:opacity-20 transition-opacity duration-300" />
-
-              <div className="p-6 relative z-10">
-                <div
-                  className={`${link.bgColor} w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <div
-                    className={` ${link.color} bg-clip-text text-transparent`}
-                  >
-                    {link.icon}
-                  </div>
-                </div>
-
-                <h3 className="text-lg font-bold text-gray-800 mb-2">
-                  {link.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-6">{link.description}</p>
-
-                <div
-                  className={`flex items-center ${link.textColor} font-medium group-hover:underline`}
-                >
-                  Explore
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
+              <div
+                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${link.color} flex items-center justify-center mb-8 text-white shadow-lg shadow-black/20 group-hover:scale-110 transition-transform`}
+              >
+                {link.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">
+                {link.title}
+              </h3>
+              <p className="text-emerald-100/50 text-sm leading-relaxed mb-8 flex-1">
+                {link.description}
+              </p>
+              <div className="flex items-center text-emerald-400 text-sm font-bold tracking-wide uppercase group-hover:text-white transition-colors">
+                Explore{" "}
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           ))}

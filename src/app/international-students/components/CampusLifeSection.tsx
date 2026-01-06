@@ -1,4 +1,5 @@
-// app/international-students/components/CampusLifeSection.tsx
+"use client";
+
 import {
   Users,
   Palette,
@@ -11,312 +12,202 @@ import {
   ArrowRight,
   Calendar,
   CheckCircle,
+  ExternalLink,
+  Play,
 } from "lucide-react";
 
 export default function CampusLifeSection() {
   const clubs = [
     {
       name: "International Student Association",
-      description: "Connect with students from around the world",
-      icon: <Globe className="w-6 h-6" />,
-      color: "from-blue-400 to-blue-600",
+      icon: <Globe />,
+      color: "from-blue-500 to-cyan-500",
     },
     {
       name: "Cultural Club",
-      description: "Celebrate diversity through cultural events",
-      icon: <Palette className="w-6 h-6" />,
-      color: "from-purple-400 to-purple-600",
+      icon: <Palette />,
+      color: "from-purple-500 to-pink-500",
     },
     {
       name: "Sports Club",
-      description: "Participate in various sports activities",
-      icon: <Trophy className="w-6 h-6" />,
-      color: "from-green-400 to-green-600",
+      icon: <Trophy />,
+      color: "from-orange-500 to-yellow-500",
     },
     {
       name: "Music & Arts Club",
-      description: "Explore your creative side",
-      icon: <Music className="w-6 h-6" />,
-      color: "from-pink-400 to-pink-600",
-    },
-    {
-      name: "Debate Club",
-      description: "Sharpen your public speaking skills",
-      icon: <Users className="w-6 h-6" />,
-      color: "from-orange-400 to-orange-600",
-    },
-    {
-      name: "Community Service Club",
-      description: "Make a difference in the community",
-      icon: <Heart className="w-6 h-6" />,
-      color: "from-red-400 to-red-600",
+      icon: <Music />,
+      color: "from-rose-500 to-red-500",
     },
   ];
 
   const facilities = [
     {
       name: "Modern Library",
-      description: "Extensive collection of books and digital resources",
-      icon: <BookOpen className="w-6 h-6" />,
-      stats: "50,000+ Books",
+      stats: "50k+ Books",
+      icon: <BookOpen />,
+      desc: "Digital & physical resources",
     },
     {
       name: "Student Lounge",
-      description: "Comfortable spaces for relaxation and socializing",
-      icon: <Coffee className="w-6 h-6" />,
-      stats: "Multiple Locations",
+      stats: "Relax Zone",
+      icon: <Coffee />,
+      desc: "Socializing & gaming spaces",
     },
     {
       name: "Sports Complex",
-      description: "Gym, swimming pool, and sports facilities",
-      icon: <Trophy className="w-6 h-6" />,
-      stats: "10+ Sports",
+      stats: "Pro Gym",
+      icon: <Trophy />,
+      desc: "Swimming & indoor courts",
     },
     {
-      name: "Cafeteria",
-      description: "Variety of local and international cuisine",
-      icon: <Coffee className="w-6 h-6" />,
-      stats: "Multiple Food Courts",
-    },
-  ];
-
-  const events = [
-    {
-      title: "International Cultural Festival",
-      date: "March 15-20, 2024",
-      description:
-        "Celebrate cultural diversity with food, music, and performances",
-    },
-    {
-      title: "Sports Tournament",
-      date: "April 5-10, 2024",
-      description: "Annual inter-department sports competition",
-    },
-    {
-      title: "Career Fair",
-      date: "May 22-24, 2024",
-      description: "Connect with top employers and industry leaders",
-    },
-    {
-      title: "Orientation Week",
-      date: "January 7-12, 2024",
-      description: "Welcome program for new international students",
+      name: "Global Cafeteria",
+      stats: "Cuisines",
+      icon: <Users />,
+      desc: "Multi-national food courts",
     },
   ];
 
   return (
-    <section id="campus-life" className="py-12">
-      <div className="flex items-center mb-8">
-        <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4">
-          <Users className="w-6 h-6 text-purple-600" />
-        </div>
-        <div>
-          <h2 className="text-3xl font-bold text-primary-800">Campus Life</h2>
-          <p className="text-gray-600">
-            Experience vibrant student life at Green University
+    <section id="campus-life" className="py-24 bg-emerald-950 overflow-hidden">
+      <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
+            Life Beyond the <br />
+            <span className="text-emerald-400">Classroom</span>
+          </h2>
+          <p className="text-emerald-100/60 text-lg leading-relaxed">
+            Experience a melting pot of cultures. At GUB, we believe that
+            education happens everywhere—from the football field to the debating
+            podium.
           </p>
         </div>
-      </div>
 
-      <div className="mb-8">
-        <div className="prose prose-lg text-gray-600 mb-6">
-          <p>
-            GUB offers a unique learning experience that blends tradition and
-            innovation. Our faculty, renowned for their expertise, creates a
-            stimulating environment. State-of-the-art facilities and a focus on
-            character development ensure our graduates are academically
-            accomplished and well-rounded.
-          </p>
-        </div>
-        <a
-          href="https://www.green.edu.bd/campus-life-events"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium group"
-        >
-          Explore Campus Life
-          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-        </a>
-      </div>
-
-      {/* Campus Facilities */}
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-6">
-          Campus Facilities
-        </h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {facilities.map((facility, index) => (
+        {/* Facilities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {facilities.map((f, i) => (
             <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              key={i}
+              className="p-8 bg-emerald-900/20 border border-emerald-800/50 rounded-3xl hover:bg-emerald-800/30 transition-all group"
             >
-              <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
-                <div className="text-primary-600">{facility.icon}</div>
+              <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                {f.icon}
               </div>
-              <h4 className="text-lg font-bold text-gray-800 mb-2">
-                {facility.name}
-              </h4>
-              <p className="text-gray-600 text-sm mb-3">
-                {facility.description}
-              </p>
-              <div className="text-sm font-semibold text-primary-600">
-                {facility.stats}
+              <div className="text-emerald-400 font-bold text-xs uppercase tracking-widest mb-1">
+                {f.stats}
               </div>
+              <h4 className="text-xl font-bold text-white mb-2">{f.name}</h4>
+              <p className="text-emerald-100/40 text-sm">{f.desc}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Student Clubs */}
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-6">
-          Student Clubs & Organizations
-        </h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {clubs.map((club, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group hover:shadow-xl transition-all duration-300"
-            >
-              <div className={` ${club.color} p-6 text-white`}>
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                  {club.icon}
-                </div>
-                <h4 className="text-xl font-bold mb-2">{club.name}</h4>
-              </div>
-              <div className="p-6">
-                <p className="text-gray-600 mb-4">{club.description}</p>
-                <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
-                  Join Club
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Upcoming Events */}
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-6">
-          Upcoming Events
-        </h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h4 className="text-lg font-bold text-gray-800 mb-1">
-                    {event.title}
-                  </h4>
-                  <div className="text-sm text-primary-600 font-medium">
-                    {event.date}
+        {/* Dynamic Club Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div className="space-y-6">
+            <h3 className="text-3xl font-bold text-white">
+              Join the <span className="text-emerald-400">Community</span>
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {clubs.map((club, i) => (
+                <div
+                  key={i}
+                  className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer"
+                >
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${club.color} opacity-80 group-hover:opacity-100 transition-opacity`}
+                  />
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
+                    <div className="bg-white/20 w-10 h-10 rounded-lg flex items-center justify-center backdrop-blur-md">
+                      {club.icon}
+                    </div>
+                    <h5 className="font-bold text-lg leading-tight">
+                      {club.name}
+                    </h5>
                   </div>
                 </div>
-                <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-primary-600" />
-                </div>
-              </div>
-              <p className="text-gray-600 mb-4">{event.description}</p>
-              <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
-                Learn More
-              </button>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* International Student Support */}
-      <div className="mb-8  from-blue-50 to-indigo-50 rounded-2xl p-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-6">
-          International Student Support
-        </h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <h4 className="text-lg font-bold text-gray-800 mb-4">
-              Services Provided:
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">
-                  Airport pickup and welcome service
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">
-                  Visa and immigration assistance
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">
-                  Cultural orientation programs
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">
-                  Academic advising and support
-                </span>
-              </li>
-            </ul>
           </div>
-          <div>
-            <h4 className="text-lg font-bold text-gray-800 mb-4">
-              Health & Wellness:
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">On-campus health center</span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">
-                  Counseling and mental health services
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">Health insurance guidance</span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 " />
-                <span className="text-gray-600">24/7 emergency support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-      {/* Gallery Preview */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="mb-6 md:mb-0 md:mr-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">
-              Campus Gallery
+          {/* Events Timeline */}
+          <div className="bg-emerald-900/30 border border-emerald-800/50 rounded-[2.5rem] p-8 md:p-10">
+            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
+              <Calendar className="w-6 h-6 mr-3 text-emerald-400" /> Season
+              Highlights
             </h3>
-            <p className="text-gray-600">
-              Take a virtual tour of our beautiful campus and facilities
-            </p>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "International Cultural Fest",
+                  date: "MAR 15",
+                  desc: "A week of global food & music",
+                },
+                {
+                  title: "Global Career Fair",
+                  date: "MAY 22",
+                  desc: "Meet MNCs and industry leaders",
+                },
+                {
+                  title: "Orientation Week",
+                  date: "JAN 07",
+                  desc: "Welcoming our new global family",
+                },
+              ].map((event, i) => (
+                <div key={i} className="flex gap-6 group">
+                  <div className="flex flex-col items-center">
+                    <div className="text-emerald-400 font-black text-sm">
+                      {event.date}
+                    </div>
+                    <div className="w-px h-full bg-emerald-800 my-2" />
+                  </div>
+                  <div>
+                    <h5 className="text-white font-bold group-hover:text-emerald-400 transition-colors">
+                      {event.title}
+                    </h5>
+                    <p className="text-emerald-100/40 text-sm">{event.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex space-x-4">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-            >
-              View Gallery
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center border-2 border-primary-600 text-primary-600 hover:bg-primary-50 px-6 py-3 rounded-lg font-semibold transition-colors"
-            >
-              Virtual Tour
-            </a>
+        </div>
+
+        {/* Support Services Banner */}
+        <div className="bg-emerald-500 rounded-[3rem] p-1 gap-1 flex flex-col md:flex-row overflow-hidden">
+          <div className="bg-emerald-950 rounded-[2.8rem] flex-1 p-10 md:p-16">
+            <h3 className="text-3xl font-bold text-white mb-6">
+              Global Support <span className="text-emerald-400">24/7</span>
+            </h3>
+            <ul className="grid sm:grid-cols-2 gap-4 mb-8">
+              {[
+                "Airport Pickup",
+                "Visa Assistance",
+                "Medical Center",
+                "Cultural Orientation",
+              ].map((s, i) => (
+                <li
+                  key={i}
+                  className="flex items-center text-emerald-100/60 font-medium"
+                >
+                  <CheckCircle className="w-5 h-5 text-emerald-400 mr-3" /> {s}
+                </li>
+              ))}
+            </ul>
+            <button className="flex items-center text-emerald-400 font-bold hover:gap-3 transition-all">
+              Learn about support services{" "}
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </button>
+          </div>
+          <div className="bg-emerald-400 md:w-1/3 flex items-center justify-center p-12 text-center group">
+            <div className="cursor-pointer">
+              <div className="w-20 h-20 bg-emerald-950 rounded-full flex items-center justify-center text-emerald-400 mb-4 mx-auto group-hover:scale-110 transition-transform">
+                <Play className="fill-current w-8 h-8 ml-1" />
+              </div>
+              <span className="font-black text-emerald-950 uppercase tracking-tighter text-xl">
+                Campus Tour
+              </span>
+            </div>
           </div>
         </div>
       </div>

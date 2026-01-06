@@ -24,7 +24,7 @@ export function Button({
     primary:
       "bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-600 hover:shadow-lg hover:-translate-y-0.5",
     secondary:
-      "bg-white border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-600",
+      "bg-green-600 border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-600",
     outline:
       "bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-300",
   };
